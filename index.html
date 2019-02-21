@@ -224,7 +224,7 @@
         }else{
             var m_zonghe_num = parseFloat(document.getElementById("admission_zonghe").value);
             var m_gaokao_num = parseFloat(document.getElementById("admission_gaokao").value);
-            var score = (m_a_num*15 + m_b_num*10 + m_c_num*5)*0.15 + m_zonghe_num*0.35 + m_gaokao_num/7.5*0.5;
+            var score = (m_a_num*15 + m_b_num*10 + m_c_num*5)/1.5*0.15 + m_zonghe_num*0.35 + m_gaokao_num/7.5*0.5;
             document.getElementById("admission_positive").innerHTML="综合成绩为"+score.toFixed(3)+"分";
             document.getElementById("admission_positive").style="";
         }
