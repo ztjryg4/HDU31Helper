@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>HDU三位一体助手 by ZhangTianjie</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/sticky-footer-navbar.css">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="index.html">HDU三位一体助手</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">工具<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="constitution.html">章程</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+
+    <!-- Begin page content -->
+    <main role="main" class="container">
+        <br>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>提醒：</strong> 本页面信息最后更新于2019年2月（基于2019年三位一体招生章程），请注意页面信息时效性。信息以<a href="http://zhaosheng.hdu.edu.cn/">杭州电子科技大学本科招生网</a>等官方渠道为准。
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <h2 class="mt-4">报名资格换算</h2><br>
+        <div class="row">
+            <div class="col-sm">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">A</span>
+                    </div>
+                    <input type="text" class="form-control" id="application_a" aria-label="A" aria-describedby="A_input_group">
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">B</span>
+                    </div>
+                    <input type="text" class="form-control" id="application_b" aria-label="B" aria-describedby="B_input_group">
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">C</span>
+                    </div>
+                    <input type="text" class="form-control" id="application_c" aria-label="C" aria-describedby="C_input_group">
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">D</span>
+                    </div>
+                    <input type="text" class="form-control" id="application_d" aria-label="D" aria-describedby="D_input_group">
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">E</span>
+                    </div>
+                    <input type="text" class="form-control" id="application_e" aria-label="E" aria-describedby="E_input_group">
+                </div>
+            </div>
+            <div class="col-sm">
+                <button type="button" class="btn btn-secondary btn-block" onclick="application();">换算</button>
+            </div>
+        </div>
+        <p class="lead"><strong>普通类报名条件：</strong>学业水平测试(高中会考)成绩各科目成绩均为D等及以上，折算计分成绩在110分（含）以上。（A等计15分，B等计10分，C等计5分，D等不计分，共10科，不含体育与健康、音乐、美术）</p>
+        <div id="application_positive" class="alert alert-success" role="alert" style="display: none">
+            符合报名条件
+        </div>
+        <div id="application_negative" class="alert alert-danger" role="alert" style="display: none">
+            未达到报名条件
+        </div>
+        <div id="application_incorrect" class="alert alert-warning" role="alert" style="display: none">
+            输入的成绩个数总数不正确
+        </div>
+
+        <h2 class="mt-4">综合成绩计算</h2><br>
+        <div class="row">
+            <div class="col-sm">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">A</span>
+                    </div>
+                    <input type="text" class="form-control" id="admission_a" aria-label="A" aria-describedby="A_input_group">
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">B</span>
+                    </div>
+                    <input type="text" class="form-control" id="admission_b" aria-label="B" aria-describedby="B_input_group">
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">C</span>
+                    </div>
+                    <input type="text" class="form-control" id="admission_c" aria-label="C" aria-describedby="C_input_group">
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">D</span>
+                    </div>
+                    <input type="text" class="form-control" id="admission_d" aria-label="D" aria-describedby="D_input_group">
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">E</span>
+                    </div>
+                    <input type="text" class="form-control" id="admission_e" aria-label="E" aria-describedby="E_input_group">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">综合素质测试成绩</span>
+                    </div>
+                    <input type="text" class="form-control" id="admission_zonghe" aria-label="zonghe" aria-describedby="zonghe_input_group">
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">高考成绩</span>
+                    </div>
+                    <input type="text" class="form-control" id="admission_gaokao" aria-label="gaokao" aria-describedby="gaokao_input_group">
+                </div>
+            </div>
+            <div class="col-sm">
+                <button type="button" class="btn btn-secondary btn-block" onclick="admission();">计算</button>
+            </div>
+        </div>
+        <p class="lead"><strong>成绩换算方法：</strong>综合成绩=学业水平测试成绩×15%+综合素质测试成绩×35%+高考成绩×50%（三项成绩统一折算为百分制）。</p>
+        <div id="admission_positive" class="alert alert-success" role="alert" style="display: none">
+            成绩显示
+        </div>
+        <div id="admission_negative" class="alert alert-danger" role="alert" style="display: none">
+            未达到报名条件
+        </div>
+        <div id="admission_incorrect" class="alert alert-warning" role="alert" style="display: none">
+            输入的成绩个数总数不正确
+        </div>
+    </main>
+    <br>
+    <footer class="footer">
+        <div class="container">
+          <span class="text-muted">
+              <span>© 2019 <a href="http://imztj.cn">ZhangTianjie</a></span>
+              <span> · <a href="https://github.com/ztjryg4/HDU31Helper">GitHub</a></span>
+          </span>
+        </div>
+    </footer>
+</body>
+</html>
+
+<script>
+    function application() {
+        document.getElementById("application_positive").style="display: none";
+        document.getElementById("application_negative").style="display: none";
+        document.getElementById("application_incorrect").style="display: none";
+        var a_a_num = parseInt(document.getElementById("application_a").value);
+        var a_b_num = parseInt(document.getElementById("application_b").value);
+        var a_c_num = parseInt(document.getElementById("application_c").value);
+        var a_d_num = parseInt(document.getElementById("application_d").value);
+        var a_e_num = parseInt(document.getElementById("application_e").value);
+        if (a_a_num + a_b_num + a_c_num + a_d_num + a_e_num !== 10){
+            document.getElementById("application_incorrect").style="";
+        }else if (a_a_num*15 + a_b_num*10 + a_c_num*5 < 110 || a_e_num !== 0){
+            document.getElementById("application_negative").style="";
+        }else{
+            document.getElementById("application_positive").style="";
+        }
+    }
+</script>
+<script>
+    function admission() {
+        document.getElementById("admission_positive").style="display: none";
+        document.getElementById("admission_negative").style="display: none";
+        document.getElementById("admission_incorrect").style="display: none";
+        var m_a_num = parseInt(document.getElementById("admission_a").value);
+        var m_b_num = parseInt(document.getElementById("admission_b").value);
+        var m_c_num = parseInt(document.getElementById("admission_c").value);
+        var m_d_num = parseInt(document.getElementById("admission_d").value);
+        var m_e_num = parseInt(document.getElementById("admission_e").value);
+        if (m_a_num + m_b_num + m_c_num + m_d_num + m_e_num !== 10){
+            document.getElementById("admission_incorrect").style="";
+        }else if (m_a_num*15 + m_b_num*10 + m_c_num*5 < 110 || m_e_num !== 0){
+            document.getElementById("admission_negative").style="";
+        }else{
+            var m_zonghe_num = parseFloat(document.getElementById("admission_zonghe").value);
+            var m_gaokao_num = parseFloat(document.getElementById("admission_gaokao").value);
+            var score = (m_a_num*15 + m_b_num*10 + m_c_num*5)*0.15 + m_zonghe_num*0.35 + m_gaokao_num/7.5*0.5;
+            document.getElementById("admission_positive").innerHTML="综合成绩为"+score.toFixed(3)+"分";
+            document.getElementById("admission_positive").style="";
+        }
+    }
+</script>
