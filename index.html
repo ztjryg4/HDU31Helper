@@ -203,6 +203,8 @@
         }else if (a_a_num*15 + a_b_num*10 + a_c_num*5 < 110 || a_e_num !== 0){
             document.getElementById("application_negative").style="";
         }else{
+            var a_score = a_a_num*15 + a_b_num*10 + a_c_num*5;
+            document.getElementById("application_positive").innerHTML = a_score +"分 符合报名条件";
             document.getElementById("application_positive").style="";
         }
     }
