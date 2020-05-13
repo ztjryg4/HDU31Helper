@@ -37,14 +37,16 @@
     <main role="main" class="container">
         <br>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>提醒：</strong> 本页面信息最后更新于2019年2月（基于2019年三位一体招生章程），请注意页面信息时效性。信息以<a href="http://zhaosheng.hdu.edu.cn/">杭州电子科技大学本科招生网</a>等官方渠道为准。
+            <strong>提醒：</strong> 本页面信息最后更新于 2020 年 5 月（根据 2020 年三位一体招生章程），请注意页面信息时效性。信息以 <a href="http://zhaosheng.hdu.edu.cn/">杭州电子科技大学本科招生网</a> 等官方渠道为准。
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
 
-        <h2 class="mt-4 mb-3">报名资格换算</h2>
-        <div class="alert alert-dark" role="alert"><strong>普通类报名条件：</strong>学业水平测试(高中会考)成绩各科目成绩均为D等及以上，折算计分成绩在110分（含）以上。（A等计15分，B等计10分，C等计5分，D等不计分，共10科，不含体育与健康、音乐、美术）</div>
+        <h2 class="mt-4 mb-3">普通类报名资格换算</h2>
+        <div class="alert alert-dark" role="alert">
+            <strong>普通类报名条件：</strong>学业水平测试各科目成绩均为D等及以上，折算计分成绩在110分（含）以上。（A等计15分，B等计10分，C等计5分，D等不计分，共10科，不含体育与健康、音乐、美术）
+        </div>
         <div class="row">
             <div class="col-sm">
                 <div class="input-group mb-3">
@@ -101,7 +103,7 @@
         </div>
 
         <h2 class="mt-4 mb-3">综合成绩计算</h2>
-        <div class="alert alert-dark" role="alert"><strong>成绩换算方法：</strong>综合成绩=学业水平测试成绩×15%+综合素质测试成绩×35%+高考成绩×50%（三项成绩统一折算为百分制）。</div>
+        <div class="alert alert-dark" role="alert"><strong>成绩换算方法：</strong>综合成绩=学业水平测试成绩×15%+综合素质测试成绩×25%+高考成绩×60%（三项成绩统一折算为百分制）。</div>
         <div class="row">
             <div class="col-sm">
                 <div class="input-group mb-3">
@@ -180,7 +182,7 @@
     <footer class="footer">
         <div class="container">
           <span class="text-muted">
-              <span>© 2019 <a href="http://imztj.cn">ZhangTianjie</a></span>
+              <span>© 2020 <a href="http://imztj.cn">Zhang Tianjie</a></span>
               <span> · <a href="https://github.com/ztjryg4/HDU31Helper">GitHub</a></span>
           </span>
         </div>
@@ -204,7 +206,7 @@
             document.getElementById("application_negative").style="";
         }else{
             var a_score = a_a_num*15 + a_b_num*10 + a_c_num*5;
-            document.getElementById("application_positive").innerHTML = a_score +"分 符合报名条件";
+            document.getElementById("application_positive").innerHTML = a_score +"分 符合学业水平测试成绩要求，其他要求请见章程。";
             document.getElementById("application_positive").style="";
         }
     }
@@ -226,7 +228,7 @@
         }else{
             var m_zonghe_num = parseFloat(document.getElementById("admission_zonghe").value);
             var m_gaokao_num = parseFloat(document.getElementById("admission_gaokao").value);
-            var score = (m_a_num*15 + m_b_num*10 + m_c_num*5)/1.5*0.15 + m_zonghe_num*0.35 + m_gaokao_num/7.5*0.5;
+            var score = (m_a_num*15 + m_b_num*10 + m_c_num*5)/1.5*0.15 + m_zonghe_num*0.25 + m_gaokao_num/7.5*0.6;
             document.getElementById("admission_positive").innerHTML="综合成绩为"+score.toFixed(3)+"分";
             document.getElementById("admission_positive").style="";
         }
